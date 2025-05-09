@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #f5f7fa, #d9e4f7);
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2d2d2d;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .container {
+      flex: 1 1 650px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      min-width: 300px;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #5e60ce;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 75%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #5e60ce;
+      outline: none;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .btn-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    #savestudent {
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    #savestudent:hover {
+      background-color: #4cae4c;
+    }
+
+    #getstudents {
+      background-color: #5bc0de;
+      color: white;
+    }
+
+    #getstudents:hover {
+      background-color: #31b0d5;
+    }
+
+    #studentSaved {
+      text-align: center;
+      font-weight: 600;
+      color: green;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #fdfdfd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f2f2fc;
+      color: #4a4fc3;
+    }
+
+    tr:hover {
+      background-color: #fafafa;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      border: none;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    .image-box {
+      flex: 1 1 300px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      min-width: 250px;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group button {
+        margin: 10px 0;
+      }
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Form & Table Container -->
+    <div class="container">
+      <h2>Student Registration</h2>
+
+      <div class="form-grid">
+        <div>
+          <label for="studentid">Student ID</label>
+          <input type="text" id="studentid" placeholder="Enter ID" />
+        </div>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter name" />
+        </div>
+        <div>
+          <label for="class">Class</label>
+          <input type="text" id="class" placeholder="Enter class" />
+        </div>
+        <div>
+          <label for="age">Age</label>
+          <input type="text" id="age" placeholder="Enter age" />
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button id="savestudent">Save Student</button>
+        <button id="getstudents">View All Students</button>
+      </div>
+
+      <p id="studentSaved"></p>
+
+      <hr />
+
+      <h3>Student List</h3>
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Students will be loaded here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Image Box -->
+    <div class="image-box">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/83/Nirma_University_Logo.png" alt="University Logo">
+    </div>
+  </div>
+
+</body>
+</html>
