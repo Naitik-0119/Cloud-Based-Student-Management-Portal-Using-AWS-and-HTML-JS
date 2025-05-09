@@ -17,7 +17,12 @@ This project is a serverless backend system that manages student records using A
 
 ```bash
 .
-├── insert_std_data.py     # Lambda for inserting student data
-├── delete_std_data.py     # Lambda for deleting student data
-├── get_student_details.py # Lambda for fetching student records
-├── README.md              # Project documentation
+project-root/
+│
+├── index.html           # Frontend user interface
+├── scripts.js           # JavaScript for AJAX requests
+└── lambda/
+    ├── addStudent.py    # Lambda for saving student
+    ├── getStudents.py   # Lambda for retrieving all students
+    └── deleteStudent.py # Lambda for deleting a student
+
