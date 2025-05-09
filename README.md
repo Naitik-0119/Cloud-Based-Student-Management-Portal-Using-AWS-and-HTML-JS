@@ -57,8 +57,8 @@ Through RESTful APIs exposed via AWS API Gateway, users can **add, view, and del
 ## 🧑‍💻 Author
 
 - **Naitik Kanani (22BCE137)** – B.Tech CSE, Nirma University  
-- **Ronak Karia (22BCE145)** – B.Tech CSE, Nirma University  
-- **Karm Vyas (22BCE144)** – B.Tech CSE, Nirma University
+- **Ronak Karia (22BCE144)** – B.Tech CSE, Nirma University  
+- **Karm Vyas (22BCE145)** – B.Tech CSE, Nirma University
 
 ---
 
