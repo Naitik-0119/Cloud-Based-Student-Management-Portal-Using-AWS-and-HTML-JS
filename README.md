@@ -37,21 +37,6 @@ Through RESTful APIs exposed via AWS API Gateway, users can **add, view, and del
 
 ---
 
-## 📁 Project Structure
-
-```bash
-.
-project-root/
-│
-├── index.html           # Frontend user interface
-├── scripts.js           # JavaScript for AJAX requests
-└── lambda/
-    ├── addStudent.py    # Lambda for saving student
-    ├── getStudents.py   # Lambda for retrieving all students
-    └── deleteStudent.py # Lambda for deleting a student
-
----
-
 ## 🧪 How It Works
 
 1. **Frontend** sends AJAX requests to REST endpoints.
@@ -73,6 +58,21 @@ project-root/
 
 **Naitik Kanani**  
 Student, B.Tech CSE, Nirma University
+
+---
+
+## 📁 Project Structure
+
+```bash
+.
+project-root/
+│
+├── index.html           # Frontend user interface
+├── scripts.js           # JavaScript for AJAX requests
+└── lambda/
+    ├── addStudent.py    # Lambda for saving student
+    ├── getStudents.py   # Lambda for retrieving all students
+    └── deleteStudent.py # Lambda for deleting a student
 
 ---
 
